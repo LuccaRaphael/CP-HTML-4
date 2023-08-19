@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <script src="js/javascript.js"></script>
+
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <form id="form">
+        <label for="descricao">Descrição:</label><br>
+        <input type="text" id="descricao" name="descricao"><br><br>
+        <label for="autor">Autor:</label><br>
+        <input type="text" id="autor" name="autor"><br><br>
+        <label for="departamento">Departamento:</label><br>
+        <input type="text" id="departamento" name="departamento"><br><br>
+        <label for="importancia">Importância:</label><br>
+        <input type="number" id="importancia" name="importancia"><br><br>
+        <label for="pagarParte">Vai Pagar Parte?</label>
+        <input type="checkbox" id="pagarParte" name="pagarParte"><br><br>
+        <div id="valorDuracao" style="display: none;">
+            <label for="valor">Valor:</label><br>
+            <input type="number" id="valor" name="valor"><br><br>
+            <label for="duracao">Duração:</label><br>
+            <input type="number" id="duracao" name="duracao"><br><br>
+        </div>
+        <input type="submit" value="Adicionar Tarefa">
+    </form> 
+    <table id="tabela">
+        <tr>
+            <th>Descrição</th>
+            <th>Autor</th> 
+            <th>Departamento</th>
+            <th>Importância</th>
+            <th>Valor</th>
+            <th>Duração</th>
+            <th></th>
+        </tr>
+    </table>
+
+</body>
+</html>
