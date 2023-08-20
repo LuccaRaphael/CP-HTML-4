@@ -43,11 +43,19 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("form").addEventListener("submit", function(event){
         // Impede que a página seja recarregada
         event.preventDefault();
+        
         // Pega os valores dos campos do formulário
         const descricao = document.getElementById("descricao").value;
+        const importancia = document.getElementById("importancia").value;
+
+        // Verifica se a descrição e a importância foram preenchidas
+        if (descricao.trim() === "" || isNaN(importancia)) {
+            alert("Por favor, preencha a descrição e a importância corretamente.");
+            return; // Sai da função se não estiverem preenchidos corretamente
+        }
+
         const autor = document.getElementById("autor").value;
         const departamento = document.getElementById("departamento").value;
-        const importancia = document.getElementById("importancia").value;
         const valor = document.getElementById("valor").value;
         const duracao = document.getElementById("duracao").value;
 
@@ -60,29 +68,24 @@ document.addEventListener("DOMContentLoaded", function() {
             valor: valor,
             duracao: duracao
         };
-        // função que limpa o formulário
-        function limparFormulario() {
-            document.getElementById("descricao").value = "";
-            document.getElementById("autor").value = "";
-            document.getElementById("departamento").value = "";
-            document.getElementById("importancia").value = "";
-            document.getElementById("valor").value = "";
-            document.getElementById("duracao").value = "";
-        }
-
+        
         // Adiciona a tarefa à lista
         tarefas.push(tarefa);
         // Atualiza a tabela para mostrar a nova tarefa
         atualizarTabela();
-        //chama a função limpar formulário
-        limparFormulario();
+        
+        // Limpa o formulário
+        document.getElementById("descricao").value = "";
+        document.getElementById("autor").value = "";
+        document.getElementById("departamento").value = "";
+        document.getElementById("importancia").value = "";
+        document.getElementById("valor").value = "";
+        document.getElementById("duracao").value = "";
     });
 
     // Quando a caixa de seleção "Vai Pagar Parte?" for alterada, mostra ou oculta os campos de valor e duração
     document.getElementById("pagarParte").addEventListener("change", function() {
-        // Pega o elemento que contém os campos de valor e duração
         const valorDuracaoDiv = document.getElementById("valorDuracao");
-        // Mostra ou oculta os campos de valor e duração com base no estado da caixa de seleção
         valorDuracaoDiv.style.display = this.checked ? "block" : "none";
     });
 });
